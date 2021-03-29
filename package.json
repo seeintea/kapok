@@ -1,0 +1,22 @@
+{
+  "name": "znp-ink",
+  "version": "0.0.3",
+  "main": "index.js",
+  "author": {
+    "name": "leviegu",
+    "email": "1821414u@gmail.com"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "node docs/.vuepress/auto.js && vuepress dev docs",
+    "build": "vuepress build docs",
+    "auto": "node docs/.vuepress/auto.js"
+  },
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
