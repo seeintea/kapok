@@ -34,7 +34,7 @@ const getFiles = (dirPath) => {
 // 解析文章 yaml-front 信息
 const getFileYmal = async (dirPath, file, data) => {
   // 构建文章路径
-  const single = path.resolve(dirPath, file)
+  const single = path.resolve(dirPath, file);
   // 获取文章信息
   const content = fs.readFileSync(single, 'utf8');
   // 解析 yaml-front
