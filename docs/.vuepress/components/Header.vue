@@ -48,7 +48,7 @@ header.site-hd {
   .name {
     font-weight: 600;
     font-size: 2.1rem;
-    color: #333333;
+    color: var(--textTitle);
     text-decoration: none;
   }
 

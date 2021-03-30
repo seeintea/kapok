@@ -12,12 +12,10 @@
       </a>
     </div>
     <div class="copyright">
-      <a href="//beian.miit.gov.cn" target="_blank" class="miit">
-        {{ conf.miit }}
-      </a>
+      <a href="//beian.miit.gov.cn" target="_blank" class="miit">{{ conf.miit }}</a>
       <div v-if="conf.vuepress" class="power">
         Power by
-        <a href="https://vuepress.vuejs.org/" target="_blank"> VuePress </a>
+        <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a>
       </div>
     </div>
   </footer>
@@ -59,7 +57,7 @@ footer.site-ft {
     color: #999999;
 
     a {
-      color: #999999;
+      color: var(--linkTitle);
     }
 
     .miit {

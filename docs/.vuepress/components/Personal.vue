@@ -3,7 +3,8 @@
     <img class="avatar" :src="conf.avatar" />
     <div class="infomation">
       <div v-if="conf.name !== undefined && conf.mail !== undefined">
-        Personal blog by <a :href="'mailto:' + conf.mail">{{ conf.name }}</a>
+        Personal blog by
+        <a :href="'mailto:' + conf.mail">{{ conf.name }}</a>
       </div>
       {{ conf.slogan }}
     </div>
@@ -30,6 +31,7 @@ aside.personal-info {
   margin: 0 0 3rem;
   font-size: 1.2rem;
   line-height: 1.5;
+  color: var(--textTitle);
 
   .avatar {
     width: 3.5rem;
@@ -40,7 +42,7 @@ aside.personal-info {
 
   .infomation {
     a {
-      color: #666666;
+      color: var(--linkTitle);
     }
   }
 }

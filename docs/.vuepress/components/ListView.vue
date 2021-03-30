@@ -42,7 +42,7 @@ export default {
 article.article-view {
   margin: 1rem 0;
   line-height: 1.5;
-  color: #333333;
+  color: var(--textTitle);
 
   h1 {
     margin: 0;
@@ -51,7 +51,7 @@ article.article-view {
   }
 
   a {
-    color: #596d55;
+    color: var(--articleTitle);
     text-decoration: none;
   }
 

@@ -1,9 +1,24 @@
 // 重置 vuepress 样式
 
+::root {
+  --bgc #fbfbff
+  --textTitle #333333
+  --linkTitle #999999
+  --articleTitle #596d55
+}
+
+.dark {
+  --bgc #282c35
+  --textTitle #ffffff
+  --linkTitle #ffffff
+  --articleTitle #e48900
+}
+
 html, body
     font-family 'Times New Roman', serif
-    background-color #fbfbff 
+    background-color var(--bgc) 
 
 #app
   width 39rem
-  margin 3rem auto
+  padding 3rem 0
+  margin 0 auto
