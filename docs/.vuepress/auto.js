@@ -42,8 +42,10 @@ const getFileYmal = async (dirPath, file, data) => {
   // 获取文档创建时间
   const create_time = fs.statSync(single).ctime;
   ymal.create_time = moment(create_time).format("ddd, Mo D YYYY");
-  const html = file.replace(/md$/, "html");
-  ymal.url = `/${AutoConf.baseDir}/${html}`;
+  if (ymal.permalink === undefined) {
+    const html = file.replace(/md$/, "html");
+    ymal.permalink = `/${AutoConf.baseDir}/${html}`;
+  }
   data.push(ymal);
 }
 

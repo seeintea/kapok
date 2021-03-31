@@ -4,7 +4,6 @@ const {
 
 module.exports = {
   ...SelfConf,
-  extend: '@vuepress/theme-default',
   themeConfig: {
     navbar: false
   }
