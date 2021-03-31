@@ -1,22 +1,28 @@
 // 重置 vuepress 样式
 
-::root {
+:root {
   --bgc #fbfbff
-  --textTitle #333333
-  --linkTitle #999999
-  --articleTitle #596d55
+  --gary1 #8c8c8c
+  --gary2 #595959
+  --gary3 #434343
+  --vue #2c3e50
 }
 
 .dark {
   --bgc #282c35
-  --textTitle #ffffff
-  --linkTitle #ffffff
-  --articleTitle #e48900
+  --gary1 #d9d9d9
+  --gary2 #f0f0f0
+  --gary3 #fafafa
+  --vue  #f0f0f0
 }
 
 html, body
+    margin 0
     font-family 'Times New Roman', serif
-    background-color var(--bgc) 
+    background-color var(--bgc)
+    transition all 0.3s
+    min-height 100vh
+    color var(--vue)
 
 #app
   width 39rem

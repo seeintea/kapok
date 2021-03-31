@@ -10,13 +10,14 @@
   "private": true,
   "scripts": {
     "dev": "node docs/.vuepress/auto.js && vuepress dev docs",
-    "build": "vuepress build docs",
+    "build": "node docs/.vuepress/auto.js && vuepress build docs",
     "auto": "node docs/.vuepress/auto.js"
   },
   "devDependencies": {
     "vuepress": "^1.8.2"
   },
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "vuex": "^3.6.2"
   }
 }
