@@ -3,5 +3,14 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "kapok_v2",
   },
-  plugins: [],
-};
+  plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true,
+      },
+    },
+  ],
+}
