@@ -1,11 +1,31 @@
+import { graphql } from "gatsby"
 import React from "react"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
 
-const IndexPage: React.FC = () => {
+type IndexProps = {
+  location: Location
+  data: any
+}
+
+const IndexPage: React.FC<IndexProps> = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || "空白"
+
   return (
-    <div>
+    <Layout location={location} title={siteTitle}>
       <p>Hello Word!</p>
-    </div>
+    </Layout>
   )
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
