@@ -1,19 +1,17 @@
 {
-  "name": "kapok_v2",
-  "version": "1.0.0",
+  "name": "kapok",
+  "version": "0.0.1",
   "private": true,
-  "description": "kapok_v2",
+  "description": "kapok",
   "author": "leviegu",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "prepare": "husky install"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",

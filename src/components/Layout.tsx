@@ -1,7 +1,6 @@
 import React, { ReactNode, useMemo } from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import Bio from "./Bio"
 import Footer from "./Footer"
 
 type LayoutProps = {
@@ -31,7 +30,6 @@ const Layout: React.FC<LayoutProps> = ({ children, location, title }) => {
   return (
     <GlobalWrapper>
       <GlobalHeader>{header}</GlobalHeader>
-      <Bio />
       <main>{children}</main>
       <Footer />
     </GlobalWrapper>

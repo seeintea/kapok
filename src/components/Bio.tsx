@@ -10,7 +10,7 @@ const Bio: React.FC = () => {
         siteMetadata {
           author {
             name
-            summary
+            description
           }
           social {
             zhihu
@@ -31,7 +31,8 @@ const Bio: React.FC = () => {
         <a href={social?.zhihu} target={"_blank"} rel="noreferrer">
           {author?.name || "leviegu"}.
         </a>
-        {author?.summary || "我的灿烂人生。"}
+        <br />
+        {author?.description || "我的灿烂人生。"}
       </Summary>
     </BioBox>
   )

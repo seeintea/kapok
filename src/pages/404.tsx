@@ -1,30 +1,36 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
-const NotFoundPage: React.FC = () => {
+type NotFoundProps = {
+  location: Location
+  data: any
+}
+
+const NotFoundPage: React.FC<NotFoundProps> = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || "空白"
   return (
-    <main>
-      <title>Not found</title>
-      <h1>Page not found</h1>
+    <Layout location={location} title={siteTitle}>
+      <SEO title="404: Not Found" />
+      <h1>404: Not Found</h1>
       <p>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
+        你只是...
         <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
+        迷失在我的世界里。🍈
       </p>
-    </main>
+    </Layout>
   )
 }
 
 export default NotFoundPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
