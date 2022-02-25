@@ -1,0 +1,21 @@
+:root {
+  --color-primary: #047857;
+  --color-secondary: #ecc94b;
+  --color-tag-a: #047857;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-serif text-lg;
+  }
+  a {
+    @apply shadow-tag-a text-tag-a;
+  }
+  a:hover {
+    @apply shadow-none;
+  }
+}
