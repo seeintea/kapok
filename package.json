@@ -10,6 +10,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.2",
+    "dayjs": "^1.10.8",
     "gray-matter": "^4.0.3",
     "next": "12.1.0",
     "react": "17.0.2",
