@@ -12,8 +12,11 @@ export const getFilenames = () => {
   return fs.readdirSync(dir)
 }
 
-export const getArticleByFilename = (filename: string, fields: string[]) => {
-  const name = filename.replace(/\.md&/, "")
+export const getArticleByFilename = (
+  filename: string,
+  fields: string[]
+): Article => {
+  const name = filename.replace(/\.md$/, "")
   const fullPath = join(dir, `${name}.md`)
   const readContent = fs.readFileSync(fullPath, "utf-8")
   const { data, content } = matter(readContent)
@@ -24,11 +27,13 @@ export const getArticleByFilename = (filename: string, fields: string[]) => {
     }
   })
   ret.title = name
-  ret.content = content
+  if (fields.includes("content")) {
+    ret.content = content
+  }
   return ret
 }
 
-export const getAllArticles = (fields: string[]) => {
+export const getAllArticles = (fields: string[]): Article[] => {
   const filenames = getFilenames()
   const articles: Array<Record<string, string>> = filenames
     .map(f => getArticleByFilename(f, fields))

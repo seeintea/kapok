@@ -1,12 +1,13 @@
 import type { NextPage } from "next"
 import Head from "next/head"
+import { getAllArticles } from "../api"
 import Bio from "../components/bio"
 import Brief from "../components/brief"
 import Container from "../components/container"
 import Footer from "../components/footer"
 import Header from "../components/header"
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ articles }: any) => {
   return (
     <Container>
       <Head>
@@ -17,11 +18,20 @@ const Home: NextPage = () => {
       <Header />
       <Bio />
       <main>
-        <Brief />
+        <Brief articles={articles} />
       </main>
       <Footer />
     </Container>
   )
+}
+
+export async function getStaticProps() {
+  const articles = getAllArticles(["title", "date", "description"])
+  return {
+    props: {
+      articles,
+    },
+  }
 }
 
 export default Home
