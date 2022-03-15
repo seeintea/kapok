@@ -1,11 +1,11 @@
 import type { NextPage } from "next"
 import Head from "next/head"
-import { getAllArticles } from "../api"
-import Bio from "../components/bio"
-import Brief from "../components/brief"
-import Container from "../components/container"
-import Footer from "../components/footer"
-import Header from "../components/header"
+import { getAllArticles } from "@/api/index"
+import Bio from "@/components/bio"
+import Brief from "@/components/brief"
+import Container from "@/components/container"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
 
 const Home: NextPage = ({ articles }: any) => {
   return (

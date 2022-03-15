@@ -5,7 +5,7 @@ const config = {
   bio: {
     author: "leviegu",
     link: "https://github.com/leviegu",
-    description: "我的灿烂人生。",
+    description: "Happiness depends upon ourselves.",
   },
   footer: {
     record: "苏ICP备19014503号",

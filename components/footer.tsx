@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import conf from "../kapok.config"
+import conf from "@/kapok.config"
 
 export default function Footer() {
   const { record, contact } = conf.footer
