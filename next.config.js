@@ -2,7 +2,11 @@ const path = require("path")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["img0.baidu.com"],
+  },
   reactStrictMode: true,
+  cssModules: false,
   webpack: config => {
     config.resolve.alias = {
       ...config.resolve.alias,

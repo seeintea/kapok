@@ -10,7 +10,7 @@
 
 @layer base {
   body {
-    @apply font-serif text-lg;
+    @apply font-serif text-lg dark:bg-[#282c35] dark:text-white;
   }
   a {
     @apply shadow-tag-a text-tag-a;
