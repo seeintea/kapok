@@ -14,6 +14,8 @@ description: "Hello World"
 
 - Object constructor
 
+![测试图片](https://img0.baidu.com/it/u=2064213898,2801034448&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500)
+
 创建对象最简单的方法是使用对象构造函数。
 
 ```javascript

@@ -6,11 +6,20 @@ import Container from "@/components/container"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import MarkdownRender from "@/components/markdown-render"
+import Head from "next/head"
 
 const Post: NextPage = (props: any) => {
   const router = useRouter()
   return (
     <Container>
+      <Head>
+        {
+          // stupid modules css
+          // just use it in markdown render `code`
+          // eslint-disable-next-line @next/next/no-css-tags
+          <link href="/github-dark.css" rel="stylesheet" />
+        }
+      </Head>
       <Header />
       <main className="mb-11">
         <MarkdownRender content={props.post.content} />
