@@ -3,7 +3,8 @@ const path = require("path")
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["img0.baidu.com"],
+    loader: "imgix",
+    path: "*",
   },
   reactStrictMode: true,
   cssModules: false,
@@ -14,8 +15,14 @@ const nextConfig = {
       "@/components": path.resolve(__dirname, "components"),
       "@/api": path.resolve(__dirname, "api"),
       "@/styles": path.resolve(__dirname, "styles"),
+      "@/types": path.resolve(__dirname, "types"),
     }
     return config
+  },
+  exportPathMap: async function () {
+    return {
+      "/": { page: "/" },
+    }
   },
 }
 
