@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-const CustomTagA = (props: any) => {
+const CustomAnchorElement = (props: any) => {
   const regex = /^((http|https):)?\/\//
   if (regex.test(props.href)) {
     return (
@@ -17,7 +17,7 @@ const CustomTagA = (props: any) => {
   )
 }
 
-const CustomTagImage = (props: any) => {
+const CustomImageElement = (props: any) => {
   return (
     <div style={{ width: "100%", paddingBottom: "75%", position: "relative" }}>
       <Image
@@ -31,4 +31,4 @@ const CustomTagImage = (props: any) => {
   )
 }
 
-export { CustomTagA, CustomTagImage }
+export { CustomAnchorElement, CustomImageElement }

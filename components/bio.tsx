@@ -1,9 +1,13 @@
-import { Fragment } from "react"
+import { Fragment, useMemo } from "react"
 import Image from "next/image"
-import conf from "@/kapok.config"
+import config from "@/kapok.config"
 
 export default function Bio() {
-  const { author, link, description } = conf.bio
+  const bio = useMemo(() => {
+    const { splicing, author, link, slogan } = config.bio
+    const split = splicing.split("#author#")
+    return { split, author, link, slogan }
+  }, [])
 
   return (
     <Fragment>
@@ -12,12 +16,13 @@ export default function Bio() {
           <Image src="/avatar.jpeg" alt="avatar" width="100%" height="100%" />
         </div>
         <div>
-          Personal blog by &nbsp;
-          <a href={link} target={"_blank"} rel="noreferrer">
-            {author}.
+          {bio.split[0]}
+          <a href={bio.link} target={"_blank"} rel="noreferrer">
+            {bio.author}
           </a>
+          {bio.split[1]}
           <br />
-          {description}
+          {bio.slogan}
         </div>
       </div>
     </Fragment>

@@ -1,7 +1,11 @@
 :root {
-  --color-primary: #047857;
-  --color-secondary: #ecc94b;
-  --color-tag-a: #047857;
+  --color-primary: #333333;
+  --color-link: #047857;
+}
+
+.dark:root {
+  --color-primary: #f8f8f2;
+  --color-link: #bd93f9;
 }
 
 @tailwind base;
@@ -10,10 +14,10 @@
 
 @layer base {
   body {
-    @apply font-serif text-lg dark:bg-[#282c35] dark:text-white;
+    @apply font-serif text-lg dark:bg-[#383a59] dark:text-white;
   }
   a {
-    @apply shadow-tag-a text-tag-a;
+    @apply shadow-link text-link;
   }
   a:hover {
     @apply shadow-none;

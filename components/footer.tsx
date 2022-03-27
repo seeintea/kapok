@@ -1,23 +1,23 @@
 import { Fragment } from "react"
-import conf from "@/kapok.config"
+import config from "@/kapok.config"
 
 export default function Footer() {
-  const { record, contact } = conf.footer
-
   return (
     <footer className="mt-20">
-      ©️ {new Date().getFullYear()},&nbsp;&nbsp;
-      {contact.map(i => (
-        <Fragment key={i.id}>
-          <a href={i.url} target={"_blank"} rel="noreferrer">
-            {i.name}
-          </a>
+      ©️ {new Date().getFullYear()}
+      {config.footer.map(item => (
+        <Fragment key={item.id}>
           ,&nbsp;&nbsp;
+          <a
+            href={item.url}
+            target={"_blank"}
+            rel="noreferrer"
+            aria-label={item.label}
+          >
+            {item.name}
+          </a>
         </Fragment>
       ))}
-      <a href="https://beian.miit.gov.cn" target={"_blank"} rel="noreferrer">
-        {record}
-      </a>
     </footer>
   )
 }

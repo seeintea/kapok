@@ -1,12 +1,16 @@
 import fs from "fs"
 import matter from "gray-matter"
 import { join } from "path"
+import { Article, ArticleFields } from "@/types"
+
+const defaultArticle: Article = {
+  title: "",
+  date: "",
+  brief: "",
+  content: "",
+}
 
 const dir = join(process.cwd(), "_posts")
-
-interface Article {
-  [key: string]: string
-}
 
 export const getFilenames = () => {
   return fs.readdirSync(dir)
@@ -14,13 +18,13 @@ export const getFilenames = () => {
 
 export const getArticleByFilename = (
   filename: string,
-  fields: string[]
+  fields: ArticleFields[]
 ): Article => {
   const name = filename.replace(/\.md$/, "")
   const fullPath = join(dir, `${name}.md`)
   const readContent = fs.readFileSync(fullPath, "utf-8")
   const { data, content } = matter(readContent)
-  const ret: Article = {}
+  const ret: Article = { ...defaultArticle }
   fields.forEach(f => {
     if (typeof data[f] !== "undefined") {
       ret[f] = data[f]
@@ -33,10 +37,10 @@ export const getArticleByFilename = (
   return ret
 }
 
-export const getAllArticles = (fields: string[]): Article[] => {
+export const getAllArticles = (fields: ArticleFields[]): Article[] => {
   const filenames = getFilenames()
-  const articles: Array<Record<string, string>> = filenames
+  const articles: Article[] = filenames
     .map(f => getArticleByFilename(f, fields))
-    .sort((p1: Article, p2: Article) => (p1.date > p2.date ? -1 : 1))
+    .sort((prev: Article, next: Article) => (prev.date > next.date ? -1 : 1))
   return articles
 }
