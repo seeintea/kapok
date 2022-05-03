@@ -1,7 +1,8 @@
+import { memo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-const CustomAnchorElement = (props: any) => {
+const CustomAnchorElement = memo(function CustomAnchorElement(props: any) {
   const regex = /^((http|https):)?\/\//
   if (regex.test(props.href)) {
     return (
@@ -15,9 +16,9 @@ const CustomAnchorElement = (props: any) => {
       <a>{props.children}</a>
     </Link>
   )
-}
+})
 
-const CustomImageElement = (props: any) => {
+const CustomImageElement = memo(function CustomImageElement(props: any) {
   return (
     <div style={{ width: "100%", paddingBottom: "75%", position: "relative" }}>
       <Image
@@ -29,6 +30,6 @@ const CustomImageElement = (props: any) => {
       />
     </div>
   )
-}
+})
 
 export { CustomAnchorElement, CustomImageElement }

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { memo, useEffect } from "react"
 import Link from "next/link"
 import config from "@/kapok.config"
 
@@ -7,7 +7,11 @@ const changeWebThemeMode = (mode: string) => {
   document.documentElement.className = mode
 }
 
-export default function Header({ mini }: { mini: boolean }) {
+type custom = {
+  size?: "small" | "default"
+}
+
+export default memo(function Header(customProps: custom) {
   useEffect(() => {
     const theme = localStorage.getItem("theme")
     if (theme) {
@@ -20,7 +24,7 @@ export default function Header({ mini }: { mini: boolean }) {
       <Link href="/">
         <a
           className={
-            mini
+            customProps.size === "small"
               ? "shadow-none text-3xl font-bold text-link"
               : "shadow-none text-5xl font-bold text-primary"
           }
@@ -48,4 +52,4 @@ export default function Header({ mini }: { mini: boolean }) {
       </div>
     </div>
   )
-}
+})

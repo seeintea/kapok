@@ -1,7 +1,7 @@
-import { Fragment } from "react"
+import { Fragment, memo } from "react"
 import config from "@/kapok.config"
 
-export default function Footer() {
+export default memo(function Footer() {
   return (
     <footer className="pt-20">
       ©️ {new Date().getFullYear()}
@@ -20,4 +20,4 @@ export default function Footer() {
       ))}
     </footer>
   )
-}
+})

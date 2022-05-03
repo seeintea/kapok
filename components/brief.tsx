@@ -1,15 +1,15 @@
-import dayjs from "dayjs"
+import { Fragment, memo } from "react"
 import Link from "next/link"
-import { Fragment } from "react"
+import dayjs from "dayjs"
 import { Article } from "@/types/index"
 
-export default function Brief({ articles }: { articles: Article[] }) {
+export default memo(function Brief({ articles }: { articles: Article[] }) {
   return (
     <Fragment>
       {articles.map((article: Article) => (
         <article key={article.title}>
           <h3 className="text-2xl font-bold text-primary pt-11">
-            <Link href={`/post/${article.title}`}>
+            <Link href={`/post/${article.link}`}>
               <a className="shadow-none">{article.title}</a>
             </Link>
           </h3>
@@ -19,4 +19,4 @@ export default function Brief({ articles }: { articles: Article[] }) {
       ))}
     </Fragment>
   )
-}
+})

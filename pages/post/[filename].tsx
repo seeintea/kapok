@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { NextPage } from "next"
-import { useRouter } from "next/router"
 import Head from "next/head"
 import dayjs from "dayjs"
 import { getAllArticles, getArticleByFilename } from "@/api/index"
@@ -10,8 +9,16 @@ import Footer from "@/components/footer"
 import Header from "@/components/header"
 import MarkdownRender from "@/components/markdown-render"
 
-const Post: NextPage = (props: any) => {
-  const router = useRouter()
+interface postProps {
+  title: string
+  date: string
+  content: string
+  prev: string
+  next: string
+}
+
+const Post: NextPage<postProps> = ({ title, date, content, prev, next }) => {
+  console.log(prev, next)
 
   useEffect(() => {
     const els = document.getElementsByClassName("hljs")
@@ -28,17 +35,17 @@ const Post: NextPage = (props: any) => {
   return (
     <Container>
       <Head>
-        <title>{props.post.title}</title>
+        <title>{title}</title>
       </Head>
-      <Header mini />
+      <Header size="small" />
       <main className="mb-11">
         <article className="pb-11">
-          <h1 className="text-5xl font-extrabold text-primary">
-            {props.post.title}
+          <h1 className="text-5xl font-extrabold text-primary leading-tight">
+            {title}
           </h1>
-          <small>{dayjs(props.post.date).format("MM/DD, YYYY")}</small>
+          <div className="mt-5">{dayjs(date).format("MM/DD, YYYY")}</div>
         </article>
-        <MarkdownRender content={props.post.content} />
+        <MarkdownRender content={content} />
       </main>
       <Bio />
       <Footer />
@@ -46,35 +53,28 @@ const Post: NextPage = (props: any) => {
   )
 }
 
-export async function getStaticProps({ params }: any) {
-  const post = getArticleByFilename(params.title, [
-    "title",
-    "date",
-    "content",
-    "brief",
-  ])
-
+export async function getStaticProps({
+  params,
+}: {
+  params: { filename: string }
+}) {
+  const { filename } = params
+  const post = getArticleByFilename(filename, ["title", "date", "content"])
+  const { title, date, content } = post
   return {
     props: {
-      post: {
-        ...post,
-      },
+      title,
+      date,
+      content,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const posts = getAllArticles(["title"])
-
+  const posts = getAllArticles(["filename"])
   return {
     fallback: false,
-    paths: posts.map(post => {
-      return {
-        params: {
-          title: post.title,
-        },
-      }
-    }),
+    paths: posts.map(post => ({ params: { filename: post.filename } })),
   }
 }
 

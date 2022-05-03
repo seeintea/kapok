@@ -4,6 +4,8 @@ import { join } from "path"
 import { Article, ArticleFields } from "@/types"
 
 const defaultArticle: Article = {
+  link: "",
+  filename: "",
   title: "",
   date: "",
   brief: "",
@@ -12,9 +14,7 @@ const defaultArticle: Article = {
 
 const dir = join(process.cwd(), "_posts")
 
-export const getFilenames = () => {
-  return fs.readdirSync(dir)
-}
+export const getFilenames = () => fs.readdirSync(dir)
 
 export const getArticleByFilename = (
   filename: string,
@@ -25,15 +25,12 @@ export const getArticleByFilename = (
   const readContent = fs.readFileSync(fullPath, "utf-8")
   const { data, content } = matter(readContent)
   const ret: Article = { ...defaultArticle }
-  fields.forEach(f => {
-    if (typeof data[f] !== "undefined") {
-      ret[f] = data[f]
-    }
+  fields.forEach(key => {
+    if (data[key]) ret[key] = data[key]
   })
-  ret.title = name
-  if (fields.includes("content")) {
-    ret.content = content
-  }
+  if (!ret.link) ret.link = name
+  ret.filename = name
+  if (fields.includes("content")) ret.content = content
   return ret
 }
 

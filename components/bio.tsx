@@ -1,8 +1,8 @@
-import { Fragment, useMemo } from "react"
+import { Fragment, memo, useMemo } from "react"
 import Image from "next/image"
 import config from "@/kapok.config"
 
-export default function Bio() {
+export default memo(function Bio() {
   const bio = useMemo(() => {
     const { splicing, author, link, slogan } = config.bio
     const split = splicing.split("#author#")
@@ -27,4 +27,4 @@ export default function Bio() {
       </div>
     </Fragment>
   )
-}
+})

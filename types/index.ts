@@ -1,8 +1,10 @@
-export type Article = {
+export interface Article {
+  link: string
+  filename: string
   title: string
   date: string
   brief: string
   content: string
 }
 
-export type ArticleFields = "title" | "date" | "brief" | "content"
+export type ArticleFields = keyof Article
