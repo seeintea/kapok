@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 import Head from "next/head"
@@ -13,23 +13,22 @@ import MarkdownRender from "@/components/markdown-render"
 const Post: NextPage = (props: any) => {
   const router = useRouter()
 
-  const [insertLink, setInsertLink] = useState(false)
-
   useEffect(() => {
     const els = document.getElementsByClassName("hljs")
-    setInsertLink(els.length > 0)
+    if (els.length <= 0) return
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "/github-dark.css"
+    const head = document.getElementsByTagName("head")
+    if (head.length) {
+      head[0].append(link)
+    }
   }, [])
 
   return (
     <Container>
       <Head>
         <title>{props.post.title}</title>
-        {
-          // stupid modules css
-          // just use it in markdown render `code`
-          // eslint-disable-next-line @next/next/no-css-tags
-          insertLink && <link href="/github-dark.css" rel="stylesheet" />
-        }
       </Head>
       <Header mini />
       <main className="mb-11">

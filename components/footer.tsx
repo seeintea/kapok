@@ -3,7 +3,7 @@ import config from "@/kapok.config"
 
 export default function Footer() {
   return (
-    <footer className="mt-20">
+    <footer className="pt-20">
       ©️ {new Date().getFullYear()}
       {config.footer.map(item => (
         <Fragment key={item.id}>
