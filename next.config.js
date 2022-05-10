@@ -3,8 +3,8 @@ const path = require("path")
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // loader: "imgix",
-    // path: "http://cdn.leviegu.cn",
+    loader: "imgix",
+    path: "https://your.image.server",
   },
   reactStrictMode: true,
   cssModules: false,

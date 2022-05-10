@@ -18,8 +18,6 @@ interface postProps {
 }
 
 const Post: NextPage<postProps> = ({ title, date, content, prev, next }) => {
-  console.log(prev, next)
-
   useEffect(() => {
     const els = document.getElementsByClassName("hljs")
     if (els.length <= 0) return

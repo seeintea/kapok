@@ -1,13 +1,16 @@
+import { avatar } from "./constant"
+
 const config = {
-  name: "inn.",
+  name: "in Autumn.",
   basic: {
-    title: "inn",
+    title: "in Autumn.",
   },
   bio: {
+    avatar,
     splicing: "Personal blog by #author#",
     author: "leviegu",
     link: "https://github.com/leviegu",
-    slogan: "Happiness depends upon ourselves.",
+    slogan: "Je te dirai que je t'aime en automne.",
   },
   footer: [
     {
