@@ -1,1 +1,3 @@
-kapok svelte version
+# hajimi version
+
+power by Next.js
