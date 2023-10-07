@@ -1,34 +1,33 @@
 {
-  "name": "hajimi",
-  "version": "0.1.0",
-  "private": true,
+  "name": "kapok",
+  "author": "leviegu <leviegu@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.4.7",
-    "@types/mdx": "^2.0.5",
-    "@types/node": "20.3.3",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
-    "autoprefixer": "10.4.14",
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.7",
-    "gray-matter": "^4.0.3",
-    "next": "13.4.7",
-    "postcss": "8.4.31",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rehype-pretty-code": "^0.10.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.1.6"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9"
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^20.8.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx,json,css,md}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "packages/*/{src,types}/**/*.ts": [
+      "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty --fix"
+    ],
+    "packages/**/*.d.ts": [
+      "eslint --ext .ts"
+    ]
   }
 }
