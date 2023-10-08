@@ -22,6 +22,6 @@
     "typescript": "^5.2.2"
   },
   "lint-staged": {
-    "*.{cjs,js,cts,ts,jsx,tsx}": ["eslint --cache --fix", "git add"]
+    "*.{cjs,js,cts,ts,jsx,tsx}": ["eslint --cache --fix"]
   }
 }
