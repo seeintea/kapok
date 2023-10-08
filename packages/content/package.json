@@ -1,0 +1,10 @@
+{
+  "name": "@kapok/content",
+  "version": "0.0.1",
+  "author": "leviegu <leviegu@gmail.com>",
+  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": []
+}

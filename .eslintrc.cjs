@@ -1,27 +1,27 @@
 module.exports = {
-  root: true,
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'prettier',
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier', 'plugin:prettier/recommended'],
+  overrides: [
+    {
+      env: { node: true },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
   parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/no-explicit-any': ['error', { fixToUnknown: true }],
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { prefer: 'type-imports' },
-    ],
-    '@typescript-eslint/consistent-type-exports': [
-      'error',
-      { fixMixedExportsWithInlineTypeSpecifier: true },
-    ],
-    '@typescript-eslint/require-await': 'off',
     'no-else-return': ['error', { allowElseIf: false }],
   },
 };

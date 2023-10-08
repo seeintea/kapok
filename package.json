@@ -3,31 +3,20 @@
   "author": "leviegu <leviegu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/types": "^17.4.4",
     "@types/node": "^20.8.3",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^14.0.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
-  },
-  "lint-staged": {
-    "**/*.{js,ts,jsx,tsx,json,css,md}": [
-      "prettier --write --ignore-unknown"
-    ],
-    "packages/*/{src,types}/**/*.ts": [
-      "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty --fix"
-    ],
-    "packages/**/*.d.ts": [
-      "eslint --ext .ts"
-    ]
   }
 }

@@ -3,6 +3,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "proseWrap": "never",
+  "printWidth": 120,
   "overrides": [
     {
       "files": ["*.json", ".prettierrc"],
