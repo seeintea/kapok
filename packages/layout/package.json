@@ -5,6 +5,16 @@
   "license": "MIT",
   "description": "",
   "main": "index.js",
-  "scripts": {},
-  "keywords": []
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@lit-labs/react": "^2.1.0",
+    "lit": "^2.8.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.11"
+  }
 }
