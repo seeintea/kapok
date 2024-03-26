@@ -1,34 +1,59 @@
 {
-  "name": "hajimi",
-  "version": "0.1.0",
+  "name": "kapok",
   "private": true,
+  "sideEffects": false,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "icons": "npx @svgr/cli --out-dir app/components/icons -- ./public/icons",
+    "icons:watch": "npm-watch icons",
+    "dev:remix": "remix vite:dev",
+    "dev:svg": "run-s icons icons:watch",
+    "dev": "run-p dev:*",
+    "build": "remix vite:build",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "watch": {
+    "icons": {
+      "patterns": [
+        "icons"
+      ],
+      "extensions": "svg",
+      "quiet": false
+    }
   },
   "dependencies": {
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.4.7",
-    "@types/mdx": "^2.0.5",
-    "@types/node": "20.3.3",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
-    "autoprefixer": "10.4.14",
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.7",
-    "gray-matter": "^4.0.3",
-    "next": "13.4.7",
-    "postcss": "8.4.31",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rehype-pretty-code": "^0.10.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.1.6"
+    "@remix-run/node": "^2.8.1",
+    "@remix-run/react": "^2.8.1",
+    "@remix-run/serve": "^2.8.1",
+    "isbot": "^4.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9"
+    "@remix-run/dev": "^2.8.1",
+    "@svgr/cli": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-prettier": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.38.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "typescript": "^5.1.6",
+    "vite": "^5.1.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

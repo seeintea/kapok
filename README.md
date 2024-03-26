@@ -1,3 +1,1 @@
-# hajimi version
-
-power by Next.js
+power by Remix
