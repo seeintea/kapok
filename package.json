@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nx run-many --target=dev",
     "build": "pnpm i && nx run @kapok/application:build",
+    "start": "nx run @kapok/application:start",
     "lint": "pnpm biome lint ./",
     "prepare": "husky"
   },
