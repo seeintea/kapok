@@ -1,0 +1,7 @@
+{
+  "name": "@kapok/tailwind",
+  "version": "0.0.1",
+  "description": "",
+  "main": "tailwind.config.ts",
+  "files": ["tailwind.config.ts"]
+}

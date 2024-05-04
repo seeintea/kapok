@@ -1,5 +1,5 @@
 {
-  "name": "@kapok/layout",
+  "name": "@kapok/icons",
   "version": "0.0.5",
   "types": "./dist/lib/index.d.ts",
   "main": "./dist/lib/index.js",
@@ -20,9 +20,7 @@
     "new": "modern new",
     "upgrade": "modern upgrade"
   },
-  "dependencies": {
-    "@kapok/icons": "workspace:*"
-  },
+  "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
     "@modern-js/module-tools": "2.49.2",

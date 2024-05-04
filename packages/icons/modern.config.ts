@@ -5,6 +5,9 @@ export default defineConfig({
   buildPreset: "npm-library",
   buildConfig: {
     alias: { "@": "src" },
+    asset: {
+      svgr: true,
+    },
     dts: {
       abortOnError: true,
       distPath: "./",
