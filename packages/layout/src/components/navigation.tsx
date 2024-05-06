@@ -1,27 +1,23 @@
 import type React from "react";
 import type { LinkItem } from "@/types";
-import Popover from "./popover";
 
 interface NavigationProps {
-  size?: number;
-  routes: LinkItem[];
+	link: LinkItem[];
 }
 
 export default function Navigation(props: NavigationProps): React.ReactNode {
-  const { size = 24, routes = [] } = props;
+	const { link = [] } = props;
 
-  return (
-    // <nav className="flex justify-center gap-5 border border-slate-200 py-1 px-5 rounded-full shadow-inner">
-    <nav className="flex justify-center gap-5">
-      {routes.map(({ name, path, component: Component }) => {
-        return (
-          <a key={name} href={path}>
-            <Popover title={name}>
-              <Component width={size} height={size} />
-            </Popover>
-          </a>
-        );
-      })}
-    </nav>
-  );
+	return (
+		<nav className="flex justify-center gap-5">
+			{link.map(({ name, path, icon }) => {
+				return (
+					<span key={name} className="relative pointer group">
+						<div className="bg-mask opacity-0 w-full h-full absolute blur group-hover:opacity-15" />
+						<a className="relative" title={name} href={path}>{icon ?? name}</a>
+					</span>
+				);
+			})}
+		</nav>
+	);
 }
