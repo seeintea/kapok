@@ -1,14 +1,23 @@
-import { Introduction, Navigation, Footer } from "@kapok/layout";
-import { contacts, footer, routes } from "@/config";
+import Container from "@/components/container";
 
-export default function Index() {
+async function getVerse() {
+	const res = await fetch("https://v2.jinrishici.com/one.json", {
+		headers: {
+			"X-User-Token": "9nIB8ArxWKbC9NXTCX7nxhNTJPMe3Rai",
+		},
+	});
+	if (!res.ok) {
+		return {};
+	}
+	return res.json();
+}
+
+export default async function Index() {
+	const verse = await getVerse();
+
 	return (
-		<main className="w-screen h-[70vh] overflow-hidden grid place-items-center">
-			<section className="flex flex-col gap-3 text-stone-600">
-				<Introduction username="yukkuri" link={contacts} />
-				<Navigation link={routes} />
-				<Footer username="yukkuri" link={footer} />
-			</section>
-		</main>
+		<Container className="overflow-hidden grid place-items-center h-[70vh]">
+			{verse?.data?.content && <p className="my-1	text-sm text-center">{verse?.data?.content}</p>}
+		</Container>
 	);
 }

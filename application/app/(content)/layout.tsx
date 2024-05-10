@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Introduction, Navigation, Footer } from "@kapok/layout";
-import { contacts, footer, routes } from "@/config";
+import Container from "@/components/container";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -16,14 +15,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<main className="w-screen h-screen overflow-hidden grid place-items-center">
-					<section className="flex flex-col gap-3 text-stone-600">
-						<Introduction username="yukkuri" link={contacts} />
-						<Navigation link={routes} />
-						{children}
-						<Footer username="yukkuri" link={footer} />
-					</section>
-				</main>
+				{/* <Container className="w-1/2 min-w-[680px] mx-auto py-9 min-h-screen"> */}
+				<Container className="overflow-hidden grid place-items-center h-[70vh]">{children}</Container>
 			</body>
 		</html>
 	);
