@@ -23,7 +23,7 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "@modern-js/module-tools": "2.49.2",
+    "@modern-js/module-tools": "2.49.3",
     "rimraf": "~3.0.2"
   }
 }
