@@ -3,7 +3,7 @@ import Container from "@/components/container";
 async function getVerse() {
 	const res = await fetch("https://v2.jinrishici.com/one.json", {
 		headers: {
-			"X-User-Token": "9nIB8ArxWKbC9NXTCX7nxhNTJPMe3Rai",
+			"X-User-Token": process.env.X_USER_TOKEN,
 		},
 	});
 	if (!res.ok) {
