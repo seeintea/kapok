@@ -1,9 +1,12 @@
-import Image from "next/image";
+import { Photo } from "@kapok/layout";
+import { photos } from "@/config";
 
 export default function Photos() {
-	return (
-		<section className="flex justify-center">
-			<Image src={"/images/code.png"} alt="build" width={500} height={500} />
-		</section>
-	);
+  return (
+    <section className="flex flex-col justify-center items-center">
+      {photos.map((photo) => (
+        <Photo key={photo.url} {...photo} />
+      ))}
+    </section>
+  );
 }

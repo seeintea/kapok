@@ -9,7 +9,7 @@ export default function Container(props: ContainerProps) {
 	const { className = "", children } = props;
 
 	return (
-		<main className={`w-screen ${className}`}>
+		<main className={`${className}`}>
 			<section className="flex flex-col gap-3 text-stone-600">
 				<Introduction username="yukkuri" link={contacts} />
 				<Navigation link={routes} />
