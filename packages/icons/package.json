@@ -20,12 +20,15 @@
     "new": "modern new",
     "upgrade": "modern upgrade"
   },
-  "dependencies": {
-    "@types/node": "^20.12.12",
-    "ts-node": "^10.9.2"
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "@modern-js/module-tools": "2.49.4",
-    "rimraf": "~3.0.2"
+    "rimraf": "~3.0.2",
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2"
   }
 }
