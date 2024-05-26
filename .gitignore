@@ -14,6 +14,7 @@
 /.cache
 **/dist
 .next
+**/packages/icons/src/components
 
 # misc
 .DS_Store
@@ -32,4 +33,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # config
-**/.vscode
+# **/.vscode

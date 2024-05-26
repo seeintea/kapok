@@ -23,7 +23,10 @@
   "dependencies": {
     "@kapok/icons": "workspace:*"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "devDependencies": {
     "@modern-js/module-tools": "2.49.4",
     "rimraf": "~3.0.2"

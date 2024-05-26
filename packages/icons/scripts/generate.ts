@@ -1,5 +1,6 @@
 import { rmdir, readdir, writeFile } from "node:fs/promises";
 import { existsSync, mkdirSync, unlinkSync } from "node:fs";
+import { type } from "node:os";
 
 const render = (name: string) => {
 	const iconName = name
@@ -33,17 +34,18 @@ export {
 };
 
 (async () => {
-	const currentPathItems = __dirname.split("/");
-	const parentPath = currentPathItems.slice(0, currentPathItems.length - 1).join("/");
+	const separator = type() === "Windows_NT" ? "\\" : "/";
+	const currentPathItems = __dirname.split(separator);
+	const parentPath = currentPathItems.slice(0, currentPathItems.length - 1).join(separator);
 
-	const assetsPath = `${parentPath}/src/assets`;
-	const targetPath = `${parentPath}/src/components`;
+	const assetsPath = `${parentPath}${separator}src${separator}assets`;
+	const targetPath = `${parentPath}${separator}src${separator}components`;
 
 	// remove old component files
 	if (existsSync(targetPath)) {
 		const oldComponent = await readdir(targetPath);
 		for (const component of oldComponent) {
-			const compFullPath = `${targetPath}/${component}`;
+			const compFullPath = `${targetPath}${separator}${component}`;
 			unlinkSync(compFullPath);
 		}
 		await rmdir(targetPath);
@@ -51,18 +53,21 @@ export {
 	mkdirSync(targetPath);
 
 	const iconFiles = await readdir(assetsPath);
-	const iconName = iconFiles.filter((item) => item.includes(".svg")).map((item) => item.replace(".svg", ""));
+	const iconName = iconFiles
+		.filter((item: string) => item.includes(".svg"))
+		.map((item: string) => item.replace(".svg", ""));
 	if (!iconName.length) return;
 
-	const tasks = [];
-	const exportNames = [];
+	const tasks: Promise<unknown>[] = [];
+	const exportNames: string[] = [];
 	for (const name of iconName) {
 		const [content, componentName] = render(name);
-		const componentPath = `${targetPath}/${componentName}Icon.tsx`;
+		const componentPath = `${targetPath}${separator}${componentName}Icon.tsx`;
 		exportNames.push(`${componentName}Icon`);
 		tasks.push(writeFile(componentPath, content));
 	}
 	const exportContent = exportRender(exportNames);
-	tasks.push(writeFile(`${targetPath}/index.tsx`, exportContent));
+	tasks.push(writeFile(`${targetPath}${separator}index.tsx`, exportContent));
 	await Promise.all(tasks);
+	console.log("success generate icon components!");
 })();

@@ -8,7 +8,8 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,md,mdx}",
     "../packages/layout/src/**/*.{js,ts,jsx,tsx}",
     "../packages/components/src/**/*.{js,ts,jsx,tsx}",
-    "../packages/content/src/**/*.{js,ts,jsx,tsx,mdx}",
+    "../packages/blogs/src/**/*.{js,ts,jsx,tsx,mdx}",
+    "../packages/notes/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {},
 };
