@@ -1,6 +1,6 @@
 {
   "name": "@kapok/layout",
-  "version": "0.0.5",
+  "version": "0.0.0",
   "types": "./dist/lib/index.d.ts",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
@@ -10,15 +10,9 @@
     "dev:origin": "modern dev",
     "build": "modern build",
     "build:watch": "modern build -w",
-    "reset": "rimraf ./**/node_modules",
-    "change": "modern change",
-    "bump": "modern bump",
-    "pre": "modern pre",
-    "change-status": "modern change-status",
-    "gen-release-note": "modern gen-release-note",
     "release": "modern release",
     "new": "modern new",
-    "upgrade": "modern upgrade"
+    "modern:upgrade": "modern upgrade"
   },
   "dependencies": {
     "@kapok/icons": "workspace:*"
@@ -28,7 +22,6 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "2.49.4",
-    "rimraf": "~3.0.2"
+    "@modern-js/module-tools": "2.51.0"
   }
 }

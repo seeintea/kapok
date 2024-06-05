@@ -1,6 +1,7 @@
 import { rmdir, readdir, writeFile } from "node:fs/promises";
 import { existsSync, mkdirSync, unlinkSync } from "node:fs";
-import { type } from "node:os";
+import clc from "cli-color";
+import { getParentPath, getPath } from "../utils/path";
 
 const render = (name: string) => {
 	const iconName = name
@@ -34,18 +35,17 @@ export {
 };
 
 (async () => {
-	const separator = type() === "Windows_NT" ? "\\" : "/";
-	const currentPathItems = __dirname.split(separator);
-	const parentPath = currentPathItems.slice(0, currentPathItems.length - 1).join(separator);
+	const projectPath = getParentPath();
+	const parentPath = getPath([projectPath, "packages", "icons"]);
 
-	const assetsPath = `${parentPath}${separator}src${separator}assets`;
-	const targetPath = `${parentPath}${separator}src${separator}components`;
+	const assetsPath = getPath([parentPath, "src", "assets"]);
+	const targetPath = getPath([parentPath, "src", "components"]);
 
 	// remove old component files
 	if (existsSync(targetPath)) {
 		const oldComponent = await readdir(targetPath);
 		for (const component of oldComponent) {
-			const compFullPath = `${targetPath}${separator}${component}`;
+			const compFullPath = getPath([targetPath, component]);
 			unlinkSync(compFullPath);
 		}
 		await rmdir(targetPath);
@@ -62,12 +62,13 @@ export {
 	const exportNames: string[] = [];
 	for (const name of iconName) {
 		const [content, componentName] = render(name);
-		const componentPath = `${targetPath}${separator}${componentName}Icon.tsx`;
+		const componentPath = getPath([targetPath, `${componentName}Icon.tsx`]);
 		exportNames.push(`${componentName}Icon`);
 		tasks.push(writeFile(componentPath, content));
 	}
 	const exportContent = exportRender(exportNames);
-	tasks.push(writeFile(`${targetPath}${separator}index.tsx`, exportContent));
+	tasks.push(writeFile(getPath([targetPath, "index.tsx"]), exportContent));
 	await Promise.all(tasks);
-	console.log("success generate icon components!");
+
+	console.log(clc.cyan("success generate icon components!"));
 })();

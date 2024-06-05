@@ -1,32 +1,41 @@
 {
-  "name": "kapok-source",
-  "version": "0.0.5",
-  "license": "MIT",
-  "scripts": {
-    "icons": "nx run @kapok/icons:build",
-    "dev": "nx run-many --target=dev",
-    "build": "pnpm i && nx run @kapok/application:build",
-    "start": "nx run @kapok/application:start",
-    "lint": "pnpm biome lint ./",
-    "prepare": "husky"
-  },
-  "private": true,
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.7.2",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@nx/js": "18.3.4",
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
-    "husky": "^9.0.11",
-    "nx": "18.3.4",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
-  }
+	"name": "kapok-source",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"reset": "ts-node ./scripts/reset.ts",
+		"lint": "pnpm biome lint ./",
+		"icons": "ts-node ./scripts/generate-icons.ts && nx run @kapok/icons:build",
+		"prepare": "husky",
+		"graph": "npx nx dep-graph",
+		"modern:upgrade": "nx run-many --target=modern:upgrade",
+		"dev": "nx run-many --target=dev",
+		"build": "pnpm run icons && pnpm i && nx run @kapok/application:build",
+		"start": "nx run @kapok/application:start"
+	},
+	"private": true,
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@types/node": "^20.12.12",
+		"@types/cli-color": "2.0.6",
+		"@biomejs/biome": "1.8.0",
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@nx/js": "19.1.2",
+		"autoprefixer": "^10.4.19",
+		"husky": "^9.0.11",
+		"nx": "19.1.2",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.3",
+		"typescript": "5.4.5",
+		"rimraf": "5.0.7",
+		"ts-node": "^10.9.2",
+		"yaml": "2.4.3",
+    "cli-color": "2.0.4"
+	}
 }
