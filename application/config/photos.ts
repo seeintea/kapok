@@ -1,28 +1,48 @@
 import type { PhotoItem } from "@kapok/layout";
 
-function removePrefix(url: string) {
-  return url.replace(/^\/application\/public/, '')
+const cdnPrefix = 'https://cdn.jsdelivr.net/gh/seeintea/seeintea.github.io/static/'
+
+function getCDNUrl(url: string) {
+  return `${cdnPrefix}${url}`
 }
 
 const photos: PhotoItem[] = [
   {
-    url: "/application/public/images/photos/keong-saik-rd-2024-04-22.webp",
+    url: "vae-2024-06-01.webp",
+    title: "",
+    date: "2024/06/01",
+    location: "南京奥体",
+  },
+  {
+    url: "keong-saik-rd-2024-04-22.webp",
     title: "",
     date: "2024/04/22",
     location: "Keong Saik Rd.",
   },
   {
-    url: "/application/public/images/photos/s.e.a.-aquarium-2024-04-21.webp",
+    url: "s.e.a.-aquarium-2024-04-21.webp",
     title: "jellyfish 🪼",
     date: "2024/04/21",
     location: "S.E.A. Aquarium",
   },
   {
-    url: "/application/public/images/photos/waitan-2023-07-21.webp",
+    url: "penang-botanical-garden-2024-01-14.webp",
+    title: "monkey🐒",
+    date: "2024/01/14",
+    location: "Penang Botanical Garden",
+  },
+  {
+    url: "penang-hill-2024-01-13.webp",
+    title: "jellyfish 🪼",
+    date: "2024/01/13",
+    location: "Penang Hill",
+  },
+  {
+    url: "the-bund-2023-07-21.webp",
     title: "",
     date: "2023/07/21",
-    location: "外滩",
+    location: "上海外滩",
   },
-].map((item) => ({...item, url: removePrefix(item.url)}));
+].map((item) => ({...item, url: getCDNUrl(item.url)}));
 
 export { photos };
