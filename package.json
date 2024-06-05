@@ -6,7 +6,7 @@
 		"reset": "ts-node ./scripts/reset.ts",
 		"lint": "pnpm biome lint ./",
 		"icons": "ts-node ./scripts/generate-icons.ts && nx run @kapok/icons:build",
-		"prepare": "husky",
+		"prepare": "husky && pnpm run icons",
 		"graph": "npx nx dep-graph",
 		"modern:upgrade": "nx run-many --target=modern:upgrade",
 		"dev": "nx run-many --target=dev",
