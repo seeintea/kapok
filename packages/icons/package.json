@@ -1,23 +1,23 @@
 {
-	"name": "@kapok/icons",
-	"version": "0.0.0",
-	"types": "./dist/lib/index.d.ts",
-	"main": "./dist/lib/index.js",
-	"module": "./dist/es/index.js",
-	"scripts": {
-		"build": "modern build",
-		"build:watch": "modern build -w",
-		"change": "modern change",
-		"release": "modern release",
-		"new": "modern new",
-		"modern:upgrade": "modern upgrade"
-	},
-	"dependencies": {},
-	"peerDependencies": {
-		"react": ">=18",
-		"react-dom": ">=18"
-	},
-	"devDependencies": {
-		"@modern-js/module-tools": "2.51.0"
-	}
+  "name": "@kapok/icons",
+  "version": "0.0.0",
+  "types": "./dist/lib/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "scripts": {
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "change": "modern change",
+    "release": "modern release",
+    "new": "modern new",
+    "modern:upgrade": "modern upgrade"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@modern-js/module-tools": "2.52.0"
+  }
 }

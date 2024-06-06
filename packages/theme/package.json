@@ -1,5 +1,5 @@
 {
-  "name": "@kapok/layout",
+  "name": "@kapok/theme",
   "version": "0.0.0",
   "types": "./dist/lib/index.d.ts",
   "main": "./dist/lib/index.js",
@@ -14,14 +14,13 @@
     "new": "modern new",
     "modern:upgrade": "modern upgrade"
   },
-  "dependencies": {
-    "@kapok/icons": "workspace:*"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "tailwindcss": ">=3"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "2.51.0"
+    "@modern-js/module-tools": "2.52.0"
   }
 }

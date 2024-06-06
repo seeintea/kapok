@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
+import { BGMask } from "@kapok/theme";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "yukkuri",
-  description: "Welcome to yukkuri's world!",
+	title: "yukkuri",
+	description: "Welcome to yukkuri's world!",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body>
+				<BGMask />
+				{children}
+			</body>
+		</html>
+	);
 }

@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { ImageItem } from "@kapok/theme";
 
 export default function Blog() {
 	return (
 		<section className="flex justify-center">
-			<Image src={"/images/code.png"} alt="build" width={500} height={500} />
+			<ImageItem url={"/images/code.png"} width={500} aspectRatio={2.5} />
 		</section>
 	);
 }
