@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
+import { Navigator, Footer } from "@/components/core";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,14 +15,21 @@ export default function BasicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-        {/* thanks ibelick's works! https://github.com/ibelick/background-snippets */}
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-          <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]" />
-        </div>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body>
+          <main className={"overflow-hidden grid place-items-center h-[70vh]"}>
+            <section className="flex flex-col gap-3 text-zinc-900">
+              <Navigator />
+              {children}
+              <Footer />
+            </section>
+          </main>
+          <div className="background-layer-0">
+            <div className="background-layer-1" />
+          </div>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

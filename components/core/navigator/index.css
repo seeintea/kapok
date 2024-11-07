@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+  .author-name {
+    @apply mx-1.5 font-semibold underline underline-offset-[5px] decoration-transparent decoration-wavy decoration-1 hover:decoration-zinc-900 transition ease-in-out;
+  }
+
+  .nav-item-text {
+    @apply underline underline-offset-[5px] decoration-transparent decoration-wavy decoration-1 hover:decoration-zinc-900;
+  }
+}
