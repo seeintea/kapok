@@ -21,17 +21,17 @@ export default function Navigator() {
         <NavItem
           name="BLOG"
           path="/blog"
-          icon={<BlogFilled width={36} height={36} />}
+          icon={<BlogFilled width={28} height={28} />}
         />
         <NavItem
           name="PHOTO"
           path="/photo"
-          icon={<PhotoFilled width={36} height={36} />}
+          icon={<PhotoFilled width={28} height={28} />}
         />
         <NavItem
           name="NOTE"
           path="/note"
-          icon={<NoteFilled width={36} height={36} />}
+          icon={<NoteFilled width={28} height={28} />}
         />
       </nav>
     </section>
