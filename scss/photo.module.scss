@@ -1,0 +1,55 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flex-align {
+  width: 100%;
+  text-align: left;
+}
+
+.ph-list {
+  @include flex;
+}
+
+.ph-item {
+  @include flex;
+  gap: .75rem;
+  max-width: 600px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: .75rem 0;
+
+  header {
+    @include flex-align;
+  }
+
+  .ph-image {
+    width: 550px;
+    border-radius: .25rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  footer {
+    @include flex-align;
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    gap: .25rem;
+
+    svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    >span:last-child {
+      color: #71717a;
+    }
+  }
+}

@@ -11,7 +11,7 @@ export async function getApiBaseUrl(): Promise<string> {
 }
 
 // const completed = ["/blog", "/photo", "/note"];
-const completed: string[] = []
+const completed: string[] = ["/photo"];
 export async function getLayoutFull(): Promise<boolean> {
   const header = await headers();
   const path = header.get("req-pathname") ?? "";

@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  XOutlined,
-  MailOutlined,
-  GithubOutlined,
-} from "@/components/outlined-icons";
+import { XOutlined, MailOutlined, GithubOutlined } from "@/components/icons";
 
 import styles from "./index.module.scss";
 

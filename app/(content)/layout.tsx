@@ -15,7 +15,7 @@ export default async function BasicLayout({
   return (
     <html lang="en">
       <body>
-        <main className={"container"}>
+        <main className={"container-full"}>
           <section className="content">
             <Navigator />
             {children}

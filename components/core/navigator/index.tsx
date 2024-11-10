@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BlogFilled, PhotoFilled, NoteFilled } from "@/components/filled-icons";
+import { BlogFilled, PhotoFilled, NoteFilled } from "@/components/icons";
 import { getCurrentRoute } from "@/utils/header";
 
 import ContactMe from "./contact-me";
