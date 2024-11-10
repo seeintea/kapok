@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ViewTransitions } from "next-view-transitions";
 import { Navigator, Footer } from "@/components/core";
 
 import "./globals.css";
@@ -15,7 +14,6 @@ export default function BasicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
       <html lang="en">
         <body>
           <main className={"overflow-hidden grid place-items-center h-[70vh]"}>
@@ -30,6 +28,5 @@ export default function BasicLayout({
           </div>
         </body>
       </html>
-    </ViewTransitions>
   );
 }
