@@ -6,36 +6,42 @@ import {
   GithubOutlined,
 } from "@/components/outlined-icons";
 
+import styles from "./index.module.scss";
+
 export default function ContactMe() {
   const handleCopySelfEMail = () => {
     navigator.clipboard.writeText("levie.gu at gmail dot com");
   };
 
   return (
-    <section className="flex items-center justify-center gap-4">
-      <a
-        href={"https://x.com/levie_gu"}
-        title={"x"}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <XOutlined width={24} height={24} />
-      </a>
-      <span
-        className="cursor-pointer"
-        title={"google mail"}
-        onClick={handleCopySelfEMail}
-      >
-        <MailOutlined width={24} height={24} />
+    <section className={styles.contact}>
+      {links.map((item) => (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          key={item.path}
+          href={item.path}
+          title={item.title}
+        >
+          {item.icon}
+        </a>
+      ))}
+      <span title={"google mail"} onClick={handleCopySelfEMail}>
+        <MailOutlined />
       </span>
-      <a
-        href={"https://github.com/seeintea"}
-        title={"github"}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <GithubOutlined width={24} height={24} />
-      </a>
     </section>
   );
 }
+
+const links = [
+  {
+    title: "X",
+    path: "https://x.com/levie_gu",
+    icon: <XOutlined />,
+  },
+  {
+    title: "github",
+    path: "https://github.com/seeintea",
+    icon: <GithubOutlined />,
+  },
+];

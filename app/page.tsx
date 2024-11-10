@@ -1,25 +1,16 @@
 "use server";
 
-import {headers} from "next/headers"
-
-async function getVerse(baseUrl?: string) {
-    let verse = "云去山如画。"
-    try {
-        const res = await fetch(`${baseUrl}api/one`, {})
-        const resp = await res.json();
-        verse = resp?.data ?? "云去山如画。"
-    } catch{
-        /* loop */
-    }
-    return verse
-}
+import { getApiBaseUrl } from "@/utils/header";
 
 export default async function Home() {
+  const verse = await getVerse();
+  return <p style={{ padding: "0.25rem 0", textAlign: "center" }}>{verse}</p>;
+}
 
-    const headerList = await headers()
-    const verse = await getVerse(headerList.get("x-request-url") as string)
-
-    return (
-        <p className="my-1 text-center">{verse}</p>
-    );
+async function getVerse() {
+  const baseUrl = await getApiBaseUrl();
+  if (!baseUrl) return "云去山如画。";
+  const ret = await fetch(`${baseUrl}/api/one`, {});
+  const json = await ret.json();
+  return json?.data ?? "云去山如画。";
 }

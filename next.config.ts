@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  // when sass-lader upgrade will remove it.
+  sassOptions: {
+    silenceDeprecations: ["legacy-js-api"],
+  }
 };
 
 export default nextConfig;

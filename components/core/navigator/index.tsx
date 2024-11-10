@@ -1,39 +1,50 @@
+import Link from "next/link";
 import { BlogFilled, PhotoFilled, NoteFilled } from "@/components/filled-icons";
+import { getCurrentRoute } from "@/utils/header";
 
 import ContactMe from "./contact-me";
-import NavItem from "./nav-item";
-import "./index.css";
+import Slogan from "./slogan";
+import styles from "./index.module.scss";
 
-export default function Navigator() {
+export default async function Navigator() {
+  const currentRoute = await getCurrentRoute();
+
   return (
-    <section className="flex flex-col gap-3 text-zinc-900">
-      <p className="text-xl font-light tracking-wider text-center text-zinc-900">
-        👋 Hi, it's
-        <a className="author-name" href="/">
-          yukkuri
-        </a>
-        here.
-      </p>
-
+    <section className={styles.navigator}>
+      <Slogan />
       <ContactMe />
-
-      <nav className="flex justify-center gap-3">
-        <NavItem
-          name="BLOG"
-          path="/blog"
-          icon={<BlogFilled width={28} height={28} />}
-        />
-        <NavItem
-          name="PHOTO"
-          path="/photo"
-          icon={<PhotoFilled width={28} height={28} />}
-        />
-        <NavItem
-          name="NOTE"
-          path="/note"
-          icon={<NoteFilled width={28} height={28} />}
-        />
+      <nav className={styles.router}>
+        {links.map((item) => {
+          const active = currentRoute === item.path ? styles.active : "";
+          const klass = `${styles.link} ${active}`;
+          return (
+            <span key={item.path} className={klass}>
+              <Link className={styles.text} href={item.path}>
+                {item.icon}
+                <span>{item.title}</span>
+              </Link>
+            </span>
+          );
+        })}
       </nav>
     </section>
   );
 }
+
+const links = [
+  {
+    title: "BLOG",
+    path: "/blog",
+    icon: <BlogFilled />,
+  },
+  {
+    title: "PHOTO",
+    path: "/photo",
+    icon: <PhotoFilled />,
+  },
+  {
+    title: "NOTE",
+    path: "/note",
+    icon: <NoteFilled />,
+  },
+];
