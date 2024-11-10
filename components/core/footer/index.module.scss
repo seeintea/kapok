@@ -1,0 +1,20 @@
+.ft-item {
+  line-height: 1.25rem;
+  font-size: .875rem;
+}
+
+.ft-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+}
+
+.ft-website {
+  margin: 0.25rem 0 0;
+  text-align: center;
+
+  > span {
+    margin: 0 .375rem 0 0;
+  }
+}
