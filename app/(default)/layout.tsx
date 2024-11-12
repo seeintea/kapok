@@ -14,5 +14,5 @@ interface DefaultLayoutProps {
 export default function DefaultLayout({
   children,
 }: Readonly<DefaultLayoutProps>) {
-  return <Layout full>{children}</Layout>;
+  return <Layout>{children}</Layout>;
 }

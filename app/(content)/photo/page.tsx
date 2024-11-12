@@ -10,7 +10,7 @@ export default async function Photo() {
       {photos?.data?.map((photo) => (
         <article key={photo.url} className={styles["ph-item"]}>
           {photo.title && <header>{photo.title}</header>}
-          <section className={styles["ph-image"]}>
+          <section className={styles["ph-image"]} style={{paddingBottom: `${(1/photo.aspectRatio) * 100}%`}}>
             <img src={photo.url} alt={photo.title} />
           </section>
           <footer>

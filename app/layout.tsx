@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Navigator, Footer } from "@/components/core";
 import "@/scss/globals.scss";
 
 export const metadata: Metadata = {
@@ -7,24 +6,15 @@ export const metadata: Metadata = {
   description: "Welcome to yukkuri's world!",
 };
 
-export default async function BasicLayout({
-  children,
-}: Readonly<{
+interface BasicLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function BasicLayout({ children }: Readonly<BasicLayoutProps>) {
   return (
     <html lang="en">
       <body>
-        <main className={"container"}>
-          <section className="content">
-            <Navigator />
-            {children}
-            <Footer />
-          </section>
-        </main>
-        <div className={"bg-l"}>
-          <div />
-        </div>
+        {children}
       </body>
     </html>
   );

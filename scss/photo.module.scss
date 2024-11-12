@@ -29,9 +29,11 @@
     width: 550px;
     border-radius: .25rem;
     overflow: hidden;
+    position: relative;
 
     img {
       width: 100%;
+      position: absolute
     }
   }
 
