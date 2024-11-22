@@ -1,7 +1,6 @@
-import quote from "@/data/quote.json";
+import one from "@/data/one.json";
 
 export async function GET() {
-  const len = quote.length;
-  const data = quote[Math.floor(Math.random() * len)];
+  const data = one[Math.floor(Math.random() * one.length)];
   return Response.json({ data });
 }

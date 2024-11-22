@@ -1,9 +1,9 @@
-import photo from "@/data/photo";
+import photo from "@/data/photos";
 
-import type { PhotoParams } from "@/types/photo"
+import type { QueryPhotoParams } from "@/types/photo"
 
 export async function POST(req: Request){
-  const params = (await req.json()) as PhotoParams;
+  const params = (await req.json()) as QueryPhotoParams;
   const total = photo.length;
   const { current, size } = params;
   const start = current - 1;

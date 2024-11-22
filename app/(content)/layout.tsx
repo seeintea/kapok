@@ -1,18 +1,6 @@
-import type { Metadata } from "next";
+import type { PropsWithChildren } from "react";
+import { ThemeProvider } from "@/theme";
 
-import Layout from "@/components/layouts";
-
-export const metadata: Metadata = {
-  title: "yukkuri",
-  description: "Welcome to yukkuri's world!",
-};
-
-interface DefaultLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function DefaultLayout({
-  children,
-}: Readonly<DefaultLayoutProps>) {
-  return <Layout full>{children}</Layout>;
+export default function Layout(props: PropsWithChildren) {
+  return <ThemeProvider fullScreen>{props.children}</ThemeProvider>;
 }

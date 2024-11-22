@@ -1,4 +1,4 @@
-export interface PhotoParams {
+export interface QueryPhotoParams {
   current: number;
   size: number;
 }
@@ -11,7 +11,7 @@ export interface PhotoData {
   aspectRatio: number;
 }
 
-export interface PhotoResponse extends PhotoParams {
+export interface QueryPhotoData extends QueryPhotoParams {
   data: PhotoData[];
   total: number;
 }

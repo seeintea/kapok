@@ -1,9 +1,4 @@
-const cdnPrefix =
-  "https://cdn.jsdelivr.net/gh/seeintea/seeintea.github.io/static/";
-
-function getCDNUrl(url: string) {
-  return `${cdnPrefix}${url}`;
-}
+const githubAssetUrl = "https://cdn.jsdelivr.net/gh/seeintea/seeintea.github.io/static/";
 
 const photos = [
   {
@@ -48,6 +43,6 @@ const photos = [
     location: "上海外滩",
     aspectRatio: 1.78,
   },
-].map((item) => ({ ...item, url: getCDNUrl(item.url) }));
+].map((item) => ({ ...item, url: `${githubAssetUrl}${item.url}` }));
 
 export default photos;

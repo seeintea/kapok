@@ -1,16 +1,20 @@
-import type { PhotoParams, PhotoResponse } from "@/types/photo";
-import { LocationFilled } from "@/components/icons";
-import { getApiBaseUrl } from "@/utils/header";
-import styles from "@/scss/photo.module.scss";
+import type { QueryPhotoData, QueryPhotoParams } from "@/types/photo";
+import { getAppHost } from "@/utils/header";
+import LocationFilled from "@/public/icons/location.svg";
+import styles from "@/styles/photo.module.scss";
 
 export default async function Photo() {
-  const photos = await getPhoto({ current: 1, size: 10 });
+  const photos = await getPageData({ current: 1, size: 10 });
+
   return (
-    <section className={styles["ph-list"]}>
+    <section className={styles.list}>
       {photos?.data?.map((photo) => (
-        <article key={photo.url} className={styles["ph-item"]}>
+        <article key={photo.url} className={styles.item}>
           {photo.title && <header>{photo.title}</header>}
-          <section className={styles["ph-image"]} style={{paddingBottom: `${(1/photo.aspectRatio) * 100}%`}}>
+          <section
+            className={styles.image}
+            style={{ paddingBottom: `${(1 / photo.aspectRatio) * 100}%` }}
+          >
             <img src={photo.url} alt={photo.title} />
           </section>
           <footer>
@@ -25,9 +29,10 @@ export default async function Photo() {
   );
 }
 
-async function getPhoto(params: PhotoParams): Promise<PhotoResponse> {
-  const baseUrl = await getApiBaseUrl();
-  const ret = await fetch(`${baseUrl}/api/photo`, {
+async function getPageData(params: QueryPhotoParams): Promise<QueryPhotoData> {
+  const host = await getAppHost();
+  if (!host) return { data: [], total: 0, ...params };
+  const ret = await fetch(`${host}/api/photo`, {
     method: "POST",
     body: JSON.stringify(params),
   });

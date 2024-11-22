@@ -4,33 +4,22 @@
   justify-content: center;
 }
 
-@mixin decoration {
-  text-decoration: #0000 wavy underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-}
-
-.navigator {
+.header {
   @include flex-center;
   flex-direction: column;
   gap: .75rem;
-  color: #18181b;
 }
 
-.slogan {
+.hola {
+  @include flex-center;
   letter-spacing: .05rem;
-  font-weight: 300;
+  gap: .375rem;
+  font-weight: lighter;
   font-size: 1.25rem;
   line-height: 1.75rem;
 
   >a {
-    margin: 0 .375rem 0;
-    font-weight: 600;
-    @include decoration;
-
-    &:hover {
-      text-decoration-color: #18181b;
-    }
+    font-weight: bold;
   }
 }
 
@@ -48,11 +37,11 @@
   }
 }
 
-.router {
+.routes {
   @include flex-center;
   gap: .75rem;
 
-  .link {
+  .route {
     padding: .25rem .5rem;
     font-weight: 400;
 
@@ -73,7 +62,9 @@
     font-size: 0.85rem;
 
     span {
-      @include decoration;
+      text-decoration: #0000 wavy underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
     }
 
     &:hover {

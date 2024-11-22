@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import Layout from "@/components/layouts";
-import assetUrl from "@/public/images/404.png";
-import styles from "@/scss/error.module.scss";
-
-export const metadata: Metadata = {
-  title: "yukkuri",
-  description: "Welcome to yukkuri's world!",
-};
+import { ThemeProvider } from "@/theme";
+import notFound from "@/public/images/not-found.png";
+import styles from "@/styles/error.module.scss";
 
 export default function NotFound() {
   return (
-    <Layout>
-      <article className={styles.nf}>
+    <ThemeProvider>
+      <section className={styles.nf}>
         <Link href="/">
-          <Image src={assetUrl} width={400} height={200} alt={"not fount ~"} />
+          <Image src={notFound} width={400} height={200} alt={"page not found"} />
         </Link>
-      </article>
-    </Layout>
+      </section>
+    </ThemeProvider>
   );
 }

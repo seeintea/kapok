@@ -1,18 +1,21 @@
+import Link from "next/link";
+import config from "@/kapok.config";
+
 import styles from "./index.module.scss";
 
 export default function Footer() {
   return (
-    <footer className={styles["ft-item"]}>
-      <section className={styles["ft-links"]}>
-        {links.map((item) => (
-          <a target="_blank" rel="noreferrer" href={item.path} key={item.path}>
-            {item.title}
+    <footer className={styles.footer}>
+      <section className={styles.links}>
+        {links.map((link) => (
+          <a target="_blank" rel="noreferrer" href={link.path} key={link.path}>
+            {link.title}
           </a>
         ))}
       </section>
-      <p className={styles["ft-website"]}>
+      <p className={styles.copyright}>
         <span>@{new Date().getFullYear()}</span>
-        <a href="/">yukkuri</a>
+        <Link href="/">{config.title}</Link>
       </p>
     </footer>
   );

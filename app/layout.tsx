@@ -1,20 +1,22 @@
+import type { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-import "@/scss/globals.scss";
+
+import config from "@/kapok.config";
+import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
-  title: "yukkuri",
-  description: "Welcome to yukkuri's world!",
+  title: config.title,
+  description: config.description,
 };
 
-interface BasicLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function BasicLayout({ children }: Readonly<BasicLayoutProps>) {
+export default function RootLayout(props: PropsWithChildren) {
   return (
     <html lang="en">
       <body>
-        {children}
+        {props?.children}
+        <div className={"bg-gradient"}>
+          <div />
+        </div>
       </body>
     </html>
   );
