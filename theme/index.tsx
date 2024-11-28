@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from "react";
-
 import Navigator from "./navigator";
 import Footer from "./footer";
 import styles from "./index.module.scss";

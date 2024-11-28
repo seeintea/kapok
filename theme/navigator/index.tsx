@@ -1,52 +1,31 @@
-import BlogFilled from "@/public/icons/blog.svg";
-import NoteFilled from "@/public/icons/note.svg";
-import PhotoFilled from "@/public/icons/photo.svg";
-import { getCurrentRoute } from "@/utils/header";
-
-import HolaItem from "./hola-item";
-import ContactItem from "./contact-item";
-import styles from "./index.module.scss"
 import Link from "next/link";
+import config from "@/config";
+import ClientNavigator from "./client-navigator";
+import styles from "./index.module.scss";
+
+const { navigator } = config.theme;
 
 export default async function Navigator() {
-  const current = await getCurrentRoute()
-
   return (
     <header className={styles.header}>
-      <HolaItem />
-      <ContactItem />
-      <nav className={styles.routes}>
-        {routes.map((route) => {
-          const active = current === route.path ? styles.active : "";
-          const klass = `${styles.route} ${active}`;
-          return (
-            <span key={route.path} className={klass}>
-              <Link className={styles.text} href={route.path}>
-                {route.icon}
-                <span>{route.title}</span>
-              </Link>
-            </span>
-          );
-        })}
-      </nav>
+      <div className={styles.hello}>
+        <span>👋</span>
+        Hi, it's <Link href="/">yukkuri</Link> here.
+      </div>
+      <section className={styles.contact}>
+        {navigator.contacts.map((contact) => (
+          <a
+            target="_blank"
+            rel="noreferrer"
+            key={contact.path}
+            href={contact.path}
+            title={contact.title}
+          >
+            {contact.icon}
+          </a>
+        ))}
+      </section>
+      <ClientNavigator routes={navigator.routes} />
     </header>
   );
 }
-
-const routes = [
-  {
-    title: "BLOG",
-    path: "/blog",
-    icon: <BlogFilled />,
-  },
-  {
-    title: "PHOTO",
-    path: "/photo",
-    icon: <PhotoFilled />,
-  },
-  {
-    title: "NOTE",
-    path: "/note",
-    icon: <NoteFilled />,
-  },
-];

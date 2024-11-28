@@ -9,12 +9,3 @@ export async function getAppHost() {
   }
   return `${proto}://${host}`;
 }
-
-const completedRoutes = ["/photo"];
-
-export async function getCurrentRoute() {
-  const header = await headers();
-  const path = header.get("req-pathname") ?? "";
-  if (!path) return "";
-  return completedRoutes.find((route) => path.startsWith(route)) ?? "";
-}

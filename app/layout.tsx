@@ -1,7 +1,6 @@
 import type { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-
-import config from "@/kapok.config";
+import config from "@/config";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {

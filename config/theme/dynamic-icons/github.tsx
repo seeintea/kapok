@@ -1,20 +1,26 @@
 "use client";
 
-import type { Variants } from "motion/react";
+import type { Variants, Transition } from "motion/react";
 import { motion, useAnimation } from "motion/react";
+
+const transition: Transition = {
+  duration: 0.6,
+  ease: [0.42, 0, 0.58, 1],
+};
 
 const variants: Variants = {
   normal: {
-    translateX: "0px",
-    translateY: "0px",
-    rotate: "0deg",
+    rotate: 0,
+    x: 0,
+    y: 0,
   },
   animate: {
-    translateX: "-1px",
-    translateY: "-2px",
-    rotate: "-12deg",
+    rotate: [0, 5, -5, 3, -3, 0],
+    x: [0, 3, -3, 2, -2, 0],
+    y: [0, 1.5, -1.5, 1, -1, 0],
+    transition,
   },
-}
+};
 
 export default function GithubOutlined() {
   const controls = useAnimation();

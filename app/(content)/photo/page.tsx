@@ -12,11 +12,12 @@ export default async function Photo() {
         <article key={photo.url} className={styles.item}>
           {photo.title && <header>{photo.title}</header>}
           <section
-            className={styles.image}
-            style={{ paddingBottom: `${(1 / photo.aspectRatio) * 100}%` }}
-          >
-            <img src={photo.url} alt={photo.title} />
-          </section>
+            className={styles["img-section"]}
+            style={{
+              paddingBottom: `${(1 / photo.aspectRatio) * 100}%`,
+              backgroundImage: `url(${photo.url})`,
+            }}
+          />
           <footer>
             <LocationFilled />
             <span>{photo.location}</span>
