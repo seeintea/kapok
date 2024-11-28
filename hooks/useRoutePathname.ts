@@ -1,7 +1,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const completedPaths = ["/photo"];
+const completedPaths = ["/photo", "/note"];
 
 export default function useRoutePathname() {
   const pathname = usePathname();

@@ -1,0 +1,38 @@
+@mixin flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.warp {
+  width: 100%;
+  max-width: 32rem;
+  margin: 1.5rem auto 0;
+}
+
+.list {
+  @include flex-center-column;
+  min-height: 20rem;
+}
+
+.item {
+  @include flex-center-column;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  color: #212121;
+
+  header {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: #212121 underline;
+    }
+  }
+
+  section {
+    font-size: 1rem;
+  }
+}

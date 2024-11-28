@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   /* config options here */
   experimental: {
     turbo: {
@@ -26,4 +28,6 @@ const nextConfig: NextConfig = {
   }
 };
 
-export default nextConfig;
+const withMDX = createMDX({})
+
+export default withMDX(nextConfig);
