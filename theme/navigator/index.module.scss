@@ -10,13 +10,19 @@
   gap: .75rem;
 }
 
-.hola {
+.hello {
   @include flex-center;
   letter-spacing: .05rem;
   gap: .375rem;
   font-weight: lighter;
   font-size: 1.25rem;
   line-height: 1.75rem;
+
+  &:hover {
+    >span {
+      animation: wave .7s ease 1;
+    }
+  }
 
   >a {
     font-weight: bold;
@@ -77,5 +83,32 @@
   svg {
     width: 1.75rem;
     height: 1.75rem;
+  }
+}
+
+
+@keyframes wave {
+  0% {
+    transform: scale(1) rotate(0deg)
+  }
+
+  20% {
+    transform: scale(1.1) rotate(-3deg)
+  }
+
+  40% {
+    transform: scale(1.1) rotate(3deg)
+  }
+
+  60% {
+    transform: scale(1.1) rotate(-2deg)
+  }
+
+  80% {
+    transform: scale(1.1) rotate(2deg)
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg)
   }
 }
