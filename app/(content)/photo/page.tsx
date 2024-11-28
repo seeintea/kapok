@@ -7,9 +7,9 @@ export default async function Photo() {
   const photos = await getPageData({ current: 1, size: 10 });
 
   return (
-    <section className={styles.list}>
+    <div className={styles.box}>
       {photos?.data?.map((photo) => (
-        <article key={photo.url} className={styles.item}>
+        <article key={photo.url} className={styles.content}>
           {photo.title && <header>{photo.title}</header>}
           <section
             className={styles["img-section"]}
@@ -26,7 +26,7 @@ export default async function Photo() {
           </footer>
         </article>
       ))}
-    </section>
+    </div>
   );
 }
 

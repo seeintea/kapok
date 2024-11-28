@@ -1,26 +1,15 @@
-@mixin flex-center-column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@import "./utils.scss";
+
+.box {
+  @include flex-center-column;
 }
 
-@mixin text-left {
+.content {
+  @include flex-center-column;
   width: 100%;
-  text-align: left;
-}
-
-.list {
-  @include flex-center-column;
-}
-
-.item {
-  @include flex-center-column;
   gap: 0.75rem;
-  width: 100%;
-  max-width: 38rem;
   border-bottom: 1px solid #e5e7eb;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0;
 
   header {
     @include text-left;

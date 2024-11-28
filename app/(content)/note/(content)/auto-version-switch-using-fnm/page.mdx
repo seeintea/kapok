@@ -1,0 +1,39 @@
+import { CodeBlock } from "@/theme";
+
+# Automatically version switch using fnm
+
+Recent, I've been interested in `Rust`. While leaning, I have also converted some of using tools to rust builds.
+
+I was using `nvm` to manage my node version. However, I found [fnm](https://github.com/Schniz/fnm),and it's built by `Rust`.
+
+After using fnm for a while, I realized that fnm doesn't seem to support automatic switching of node versions, so I wrote a script to support it.
+
+<CodeBlock code={`#!/bin/bash
+version=""
+current=\`pwd\`
+
+if [ -f \${current}"/.nvmrc" ];then
+version=\`cat \${current}"/.nvmrc"\`;
+else
+len=\${#current}
+
+target=("use/node/16" "use/node/18")
+node_version=("16" "18")
+
+for idx in \${!target[@]};
+do
+path=\${target[$idx]}
+sub=\${current#\*$path}
+sub_len=\${#sub}
+if [ $len != $sub_len ];then
+  version=\${node_version[$idx]}
+  break
+fi
+done
+fi
+
+if [ version !== "" ];then
+exec=\`fnm use \${version}\`
+fi
+`} lang="shell"/>
+

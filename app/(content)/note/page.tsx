@@ -1,27 +1,35 @@
 import loadLocalFont from "next/font/local";
-import styles from "@/styles/note.module.scss";
 import Link from "next/link";
+import styles from "@/styles/note.module.scss";
+import { getAppHost } from "@/utils/header";
+import type { NoteData } from "@/types/note";
 
-const NotoSerif = loadLocalFont({
+const NotoSerifFont = loadLocalFont({
   src: "../../../public/fonts/OpenSans-VariableFont_wdth,wght.ttf",
 });
 
-export default function Note() {
+export default async function Note() {
+  const notes = await getPageData();
+
   return (
-    <section className={styles.list}>
-      <article className={`${styles.item} ${NotoSerif.className}`}>
-        <header>
-          <Link href={"/note/fnm-auto-node-version"}>
-            Support fnm automatically change node version
-          </Link>
-        </header>
-        <section>
-          Recently I've been using fnm as a node version manager, and when I use
-          nvm I can use .nvmrc to switch between node versions automatically,
-          but fnm doesn't seem to offer this, so I wrote a shell script to do it
-          automatically.
-        </section>
-      </article>
-    </section>
+    <div className={`${styles.box} ${NotoSerifFont.className}`}>
+      {notes.data.map((note) => (
+        <article key={note.path} className={styles.details}>
+          <header>
+            <Link href={`/note/${note.path}`}>{note.title}</Link>
+          </header>
+          <section>{note.summary}</section>
+        </article>
+      ))}
+    </div>
   );
+}
+
+async function getPageData(): Promise<{ data: NoteData[] }> {
+  const host = await getAppHost();
+  if (!host) return { data: [] };
+  const ret = await fetch(`${host}/api/note`, {
+    method: "GET",
+  });
+  return await ret.json();
 }

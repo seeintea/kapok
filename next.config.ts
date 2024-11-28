@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
-import createMDX from '@next/mdx'
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   /* config options here */
   experimental: {
     turbo: {
@@ -25,9 +25,9 @@ const nextConfig: NextConfig = {
   // when sass-lader upgrade will remove it.
   sassOptions: {
     silenceDeprecations: ["legacy-js-api"],
-  }
+  },
 };
 
-const withMDX = createMDX({})
+const withMDX = createMDX({});
 
 export default withMDX(nextConfig);

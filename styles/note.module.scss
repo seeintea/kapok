@@ -1,25 +1,15 @@
-@mixin flex-center-column {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+@import "./utils.scss";
 
-.warp {
-  width: 100%;
-  max-width: 32rem;
-  margin: 1.5rem auto 0;
-}
-
-.list {
+.box {
   @include flex-center-column;
-  min-height: 20rem;
+  padding: 0.75rem 0 0;
 }
 
-.item {
+.details {
   @include flex-center-column;
+  @include text-left;
   gap: 0.75rem;
-  width: 100%;
-  text-align: left;
+  font-size: 1rem;
   color: #212121;
 
   header {
@@ -31,8 +21,9 @@
       text-decoration: #212121 underline;
     }
   }
+}
 
-  section {
-    font-size: 1rem;
-  }
+.article {
+  font-size: 1.25rem;
+  color: #212121;
 }

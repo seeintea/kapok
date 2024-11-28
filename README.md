@@ -5,3 +5,5 @@
 [background-snippets](https://github.com/ibelick/background-snippets)
 
 [pqoqubbw/icons](https://github.com/pqoqubbw/icons)
+
+[github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
